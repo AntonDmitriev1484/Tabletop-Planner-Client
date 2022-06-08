@@ -19,6 +19,28 @@ function Login(props: any): JSX.Element {
     const [info, setInfo] = useState<AuthObj>({} as AuthObj); //Makes useState work with an object of type AuthObj
     const redirect = useNavigate(); //This is also a react hook
 
+    const username_field_change = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+        setInfo({...info, username: event.target.value}); //Copies the rest of info, except for username
+    }
+
+    const password_field_change = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+        setInfo({...info, password:event.target.value});
+    }
+
+    const on_login_press = ():void => {
+        const user:string = info.username;
+                               
+        const on_success = (a: any) => {
+            console.log("In login success");
+            console.log(user);
+            document.cookie = "username= "+user+";"; //Because we still have access to this scope's info 
+            console.log('redirecting');
+            redirect("/dash/"); //Change this redirect to only work on successful entry, maybe pass it to the api-user function
+        }
+       
+        login(info, on_success);
+    }
+
     return (
         <Card 
             color = "secondary"
@@ -38,46 +60,18 @@ function Login(props: any): JSX.Element {
 
                     <Grid item>
                         <TextField  label="Username" id="login-username" variant= "outlined"
-                            onChange = { //Each time this text field is changed, onChange is called , and an event object is passed to the function
-                                (event)=>{
-                                    //event.target.value is the value within this MUI object
-                                    const temp = info.password;
-                                    setInfo({username: event.target.value, password: temp});
-                                }
-                            }/>
+                            onChange = { username_field_change}/>
                     </Grid>
 
                     <Grid item>
                         <TextField label="Password" id="login-password" variant= "outlined"
-                            onChange = { //Constantly causing state to re-render, but thats fine for now
-                                (event)=>{
-                                    const temp = info.username;
-                                    setInfo({username: temp, password: event.target.value});
-                                }
-                                
-                            }/>
+                            onChange = { password_field_change }/>
                     </Grid>
 
                     <Grid item>
                         <Button 
                             color="secondary" variant="contained"
-                            onClick= { () => {
-
-                                const user = info.username;
-                               
-                                const on_success = (a: any) => {
-                                    console.log("In login success");
-                                    console.log(user);
-                                    document.cookie = "username= "+user+";"; //Because we still have access to this scope's info 
-                                    console.log('redirecting');
-                                    redirect("/dash/"); //Change this redirect to only work on successful entry, maybe pass it to the api-user function
-                                }
-                               
-                                login(info, on_success);
-
-                                }
-                            } >Enter</Button>
-
+                            onClick= { on_login_press} >Enter</Button>
                     </Grid>
 
 
