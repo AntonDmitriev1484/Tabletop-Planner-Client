@@ -17,6 +17,8 @@ import Login from './Login'
 import Register from './Register'
 import { Paper } from '@mui/material';
 
+import '../../styles/styles.css'
+
 //We can create a type in here that specifies how we want our receiving props object to be structured
 
 export default function Home(props: any) {
@@ -41,15 +43,28 @@ export default function Home(props: any) {
 
     //Consider re-doing swapping so that it looks like this guy's image:
     //https://stackoverflow.com/questions/49969662/responsive-frosted-glass-effect-on-card-background
+
+    // const background_style = {
+    //     background-image: "url(../images/3d-abstract-dots-wave-pattern-background.jpg)",
+
+    //     /* Full height */
+    //     height: 100%,
+
+    //     /* Center and scale the image nicely */
+    //     background-position: center,
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     border-color: red;
+    //     border-radius: 10px;
+    // }
     
     return (
-        
         // <Paper style = {{
-        //     backgroundImage: `url('https://img.freepik.com/free-photo/liquid-marbling-paint-texture-background-fluid-painting-abstract-texture-intensive-color-mix-wallpaper_1258-82827.jpg?w=1800&t=st=1654724332~exp=1654724932~hmac=8bff19a35cf1b0fe12bb8697c148b7781bc08ab109002aa9691c7fa6168bf9cf')`,
         //     backgroundSize: "cover",
         //     height: "100vh",
-        //     color: "#f5f5f5"
+        //     backgroundColor: "#270554"
         // }} >
+        <div className = "background">
         <Grid
             container 
             spacing = {5}
@@ -58,7 +73,7 @@ export default function Home(props: any) {
             alignItems="center">
 
             <Grid item >
-                <Typography variant="h1">Home</Typography>
+                <Typography variant = "h1" color = "secondary">Home</Typography>
             </Grid>
 
             <Grid item justifyContent = "center">
@@ -85,6 +100,8 @@ export default function Home(props: any) {
                 </Card>
             </Grid>
         </Grid>
+        </div>
+        
         // </Paper>
         
     )

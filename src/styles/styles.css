@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Righteous-Regular;
+    src: url(./fonts/Righteous-Regular.ttf);
+  }
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background {
+    position: absolute;
+    /* The image used */
+    background-image: url(../images/3d-abstract-dots-wave-pattern-background.jpg);
+
+    /* Full height */
+    height: 100vh;
+    width: 100vw;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-header {
+    font-family: Righteous-Regular;
+    size: 100px;
+}

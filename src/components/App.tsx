@@ -7,7 +7,7 @@ import Home from './entry/Home'
 import mui_theme from '../styles/mui_theme'
 
 import { ThemeProvider} from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Paper } from '@mui/material';
 
 
 
@@ -16,9 +16,11 @@ function App(props:any) {
 
     return (
         <BrowserRouter>
-            <CssBaseline />
+            {/* <CssBaseline /> */}
+            
             <ThemeProvider theme={mui_theme}>
                 <Routes>
+                    
                     <Route path = "/" element= {<Home/>}/>
                     {/* <Route exact path = "client/test"  element= {<Test_component/>}/>
                     <Route exact path = "dash/" element = {<Dashboard/>}/> */}

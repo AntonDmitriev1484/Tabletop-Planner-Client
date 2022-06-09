@@ -38,6 +38,7 @@ import { createTheme } from '@mui/material/styles';
 // }
 
 //Dark mode seems like it'll be a complete pain in the ass
+//Need to somehow extend this if you want to get any other properties working in TS
 const theme:any = createTheme({
   palette: {
     primary: {
