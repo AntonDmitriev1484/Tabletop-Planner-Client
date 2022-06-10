@@ -20,6 +20,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
+import DashboardDrawerContent from './dashboard_parts/DashboardDrawerContent';
+
 const drawerWidth = 240;
 
 //Probably for shifting the content on the page as the drawer comes out
@@ -73,25 +75,13 @@ interface AppBarProps extends MuiAppBarProps {
     justifyContent: 'flex-end',
   }));
 
-  //Literally just trying to turn it purple should not be this fucking complex3
-//   const useStyles = makeStyles({
-//     list: {
-//       width: 250
-//     },
-//     fullList: {
-//       width: "auto"
-//     },
-//     paper: {
-//       background: "blue"
-//     }
-//   });
 
 
 export default function Dashboard(props:any): JSX.Element {
 
     const theme = useTheme();
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -100,6 +90,10 @@ export default function Dashboard(props:any): JSX.Element {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    const display_week_callback = (start_date:string, end_date:string):void => {
+
+    }
 
     return (
         <div>
@@ -114,8 +108,8 @@ export default function Dashboard(props:any): JSX.Element {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" noWrap component="div">
-                    Persistent drawer
+                <Typography variant="h1" noWrap component="div">
+                    Tabletop Planner
                 </Typography>
                 </Toolbar>
             </AppBar>
@@ -140,31 +134,10 @@ export default function Dashboard(props:any): JSX.Element {
                 </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItemButton>
-                    </ListItem>
-                ))}
-                </List>
+                
+                    <DashboardDrawerContent display_week_callback = {display_week_callback}/>
+
                 <Divider />
-                <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItemButton>
-                    </ListItem>
-                ))}
-                </List>
             </Drawer>
 
         </div>
