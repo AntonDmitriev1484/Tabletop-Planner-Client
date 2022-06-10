@@ -37,33 +37,13 @@ export default function Home(props: any) {
         buttonText = "Register";
     }
 
-    // <a href='https://www.freepik.com/photos/data-network'>Data network photo created by rawpixel.com - www.freepik.com</a>
-
     //No idea why backgrounds are so hard to do lol
 
     //Consider re-doing swapping so that it looks like this guy's image:
     //https://stackoverflow.com/questions/49969662/responsive-frosted-glass-effect-on-card-background
 
-    // const background_style = {
-    //     background-image: "url(../images/3d-abstract-dots-wave-pattern-background.jpg)",
-
-    //     /* Full height */
-    //     height: 100%,
-
-    //     /* Center and scale the image nicely */
-    //     background-position: center,
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    //     border-color: red;
-    //     border-radius: 10px;
-    // }
-    
     return (
-        // <Paper style = {{
-        //     backgroundSize: "cover",
-        //     height: "100vh",
-        //     backgroundColor: "#270554"
-        // }} >
+
         <div className = "background">
         <Grid
             container 
@@ -77,9 +57,7 @@ export default function Home(props: any) {
             </Grid>
 
             <Grid item justifyContent = "center">
-
                     {component}
-                        
             </Grid>
 
             <Grid item>
@@ -102,7 +80,6 @@ export default function Home(props: any) {
         </Grid>
         </div>
         
-        // </Paper>
         
     )
 
