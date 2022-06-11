@@ -9,6 +9,7 @@ interface Schoolwork {
     dt_created: Date,
     dt_assigned: Date,
     dt_archived: Date,
+    dt_focus: Date,
 
     description: string,
     note: string,
