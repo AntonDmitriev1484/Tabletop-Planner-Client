@@ -20,7 +20,11 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
+
+
+import PlanGrid from './dashboard_parts/grid/PlanGrid'
 import DashboardDrawerContent from './dashboard_parts/DashboardDrawerContent';
+import PlanGridRow from './dashboard_parts/grid/PlanGridRow';
 
 const drawerWidth = 240;
 
@@ -97,7 +101,7 @@ export default function Dashboard(props:any): JSX.Element {
 
     return (
         <div>
-            <AppBar position="fixed" open={open}>
+            {/* <AppBar position="fixed" open={open}>
                 <Toolbar>
                 <IconButton
                     color="inherit"
@@ -112,8 +116,11 @@ export default function Dashboard(props:any): JSX.Element {
                     Tabletop Planner
                 </Typography>
                 </Toolbar>
-            </AppBar>
-            <Drawer
+            </AppBar> */}
+
+            <PlanGridRow/>
+
+            {/* <Drawer
                 sx={{
                 backgroundColor: "purple",
                 width: 240,
@@ -138,7 +145,7 @@ export default function Dashboard(props:any): JSX.Element {
                     <DashboardDrawerContent display_week_callback = {display_week_callback}/>
 
                 <Divider />
-            </Drawer>
+            </Drawer> */}
 
         </div>
         
